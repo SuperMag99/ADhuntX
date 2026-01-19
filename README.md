@@ -1,6 +1,6 @@
 # 🛡️ ADhuntX
 
-**ADhuntX** is a fully integrated Active Directory Security Dashboard that combines **Privilege Risk Analysis** and **Password Hygiene Monitoring** into a single, offline system. It empowers internal IT and security teams to visualize user account risks based on group memberships, privilege escalation paths, and authentication security posture without sending data to external clouds.
+**ADhuntX** is a fully integrated Active Directory Security Dashboard that combines **Privilege Risk Analysis** and **Password Hygiene Monitoring** into a single, offline system. It empowers internal IT, Cybersecurity and Audit teams to visualize user account risks based on group memberships, privilege escalation paths, and authentication security posture 100% offline.
 
 ![FootprintX Hero Screenshot](https://github.com/SuperMag99/ADhuntX/blob/main/screenshots/1.png)
 ![FootprintX Hero Screenshot](https://github.com/SuperMag99/ADhuntX/blob/main/screenshots/2.png)
