@@ -44,7 +44,6 @@ npm run dev
 
 ## 📦 Repository Hygiene
 
-- Sensitive files are excluded via `.gitignore`.
 - Sample data provided is fictitious.
 - No real AD dumps are stored in this repository.
 
@@ -60,13 +59,12 @@ This project is provided "as is" without warranty. The authors are not responsib
 🚧 **Active Development**  
 Features and detection logic evolve as threat landscapes change.
 
-## 🧭 Support
+## 🧭 Security and Vulnerabilities
 
-- **Issues:** Use [GitHub Issues](https://github.com/SuperMag99/ADhuntX/issues).
 - **Security:** Refer to [SECURITY.md](./SECURITY.md).
 
 ## ⭐ Support the Project
-If this project helps your SOC team, consider giving it a ⭐.
+If this project helps your team, consider giving it a ⭐.
 
 ## 📄 License
 MIT License
