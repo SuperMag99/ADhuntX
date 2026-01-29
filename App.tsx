@@ -12,7 +12,7 @@ type Tab = 'dashboard' | 'users' | 'reports' | 'documentation';
 const Footer = () => (
   <footer className="mt-12 py-6 text-center text-slate-500 text-sm border-t border-slate-800/50">
     <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-      <p>&copy; {new Date().getFullYear()} ADhuntX. MIT License.</p>
+      <p>&copy; {new Date().getFullYear()} ADhuntX.</p>
       <div className="flex items-center gap-4">
         <a href="https://www.linkedin.com/in/mag99/" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400 transition-colors flex items-center gap-1">
           <Linkedin size={14} /> LinkedIn
