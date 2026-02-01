@@ -1,5 +1,6 @@
 import React from 'react';
 import { Tooltip } from './Tooltip';
+import { ChevronRight, ArrowUpRight, ArrowDownRight } from 'lucide-react';
 
 interface CardProps {
   title?: string;
@@ -10,10 +11,10 @@ interface CardProps {
 
 export const Card: React.FC<CardProps> = ({ title, children, className = '', action }) => {
   return (
-    <div className={`bg-slate-900 rounded-xl border border-slate-800 shadow-lg overflow-hidden ${className}`}>
+    <div className={`bg-surface rounded-2xl border border-border shadow-xl overflow-hidden backdrop-blur-sm ${className}`}>
       {(title || action) && (
-        <div className="px-6 py-4 border-b border-slate-800 flex justify-between items-center bg-slate-900/50">
-          {title && <h3 className="text-sm font-semibold text-slate-100 uppercase tracking-wide">{title}</h3>}
+        <div className="px-6 py-5 flex justify-between items-center bg-surface/50">
+          {title && <h3 className="text-base font-semibold text-slate-100">{title}</h3>}
           {action && <div>{action}</div>}
         </div>
       )}
@@ -37,16 +38,37 @@ interface StatCardProps {
 export const StatCard: React.FC<StatCardProps> = ({ label, value, trend, color = "text-white", icon, onClick, tooltipText }) => (
   <div 
     onClick={onClick}
-    className={`bg-slate-900 p-6 rounded-xl border border-slate-800 shadow-lg flex items-start justify-between transition-all hover:bg-slate-800/80 ${onClick ? 'cursor-pointer hover:border-indigo-500/50' : ''}`}
+    className={`relative group bg-surface p-6 rounded-2xl border border-border shadow-lg flex flex-col justify-between transition-all hover:bg-[#1A1D26] hover:border-primary/30 ${onClick ? 'cursor-pointer' : ''}`}
   >
-    <div>
-      <div className="flex items-center gap-1 mb-1">
+    {/* Hover Glow Effect */}
+    <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-2xl blur opacity-0 group-hover:opacity-10 transition duration-500"></div>
+    
+    <div className="relative z-10 flex justify-between items-start mb-4">
+      <div className="flex items-center gap-2">
+        <div className={`p-2 rounded-xl bg-slate-800/50 border border-slate-700/50 text-slate-300 group-hover:text-white group-hover:bg-primary/20 group-hover:border-primary/20 transition-colors`}>
+           {icon}
+        </div>
         <p className="text-sm font-medium text-slate-400">{label}</p>
         {tooltipText && <Tooltip text={tooltipText} />}
       </div>
-      <h4 className={`text-2xl font-bold ${color}`}>{value}</h4>
-      {trend && <p className="text-xs text-slate-500 mt-2">{trend}</p>}
+      {onClick && <div className="p-1 rounded-full bg-slate-800/50 text-slate-500 group-hover:text-white transition-colors"><ChevronRight size={14} /></div>}
     </div>
-    {icon && <div className="p-3 bg-slate-800 rounded-lg text-slate-400 border border-slate-700">{icon}</div>}
+
+    <div className="relative z-10">
+      <h4 className={`text-3xl font-bold tracking-tight ${color === 'text-white' ? 'text-white' : color} mb-1`}>{value}</h4>
+      {trend && (
+        <div className="flex items-center gap-1 mt-2">
+            {trend.includes("Elevated") || trend.includes("Risk") ? (
+                 <span className="flex items-center text-xs font-medium text-red-400 bg-red-500/10 px-2 py-0.5 rounded-full border border-red-500/10">
+                    <ArrowUpRight size={12} className="mr-1" /> {trend}
+                 </span>
+            ) : (
+                <span className="flex items-center text-xs font-medium text-green-400 bg-green-500/10 px-2 py-0.5 rounded-full border border-green-500/10">
+                    <ArrowDownRight size={12} className="mr-1" /> {trend}
+                 </span>
+            )}
+        </div>
+      )}
+    </div>
   </div>
 );
